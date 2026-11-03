@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Локальная демонстрация безопасного ввода</title>
+</head>
+<body>
+  <main>
+    <h1>Локальная демонстрация безопасного ввода</h1>
+    <p>Текст остаётся в этом поле. Страница показывает только число символов.</p>
+    <label for="practice">Введите вымышленный текст:</label>
+    <textarea id="practice" rows="5" autocomplete="off"></textarea>
+    <p id="count" aria-live="polite">Символов: 0</p>
+    <button id="clear" type="button">Очистить поле</button>
+  </main>
+  <script>
+    const practice = document.getElementById("practice");
+    const count = document.getElementById("count");
+
+    practice.addEventListener("input", () => {
+      count.textContent = `Символов: ${practice.value.length}`;
+    });
+
+    document.getElementById("clear").addEventListener("click", () => {
+      practice.value = "";
+      count.textContent = "Символов: 0";
+      practice.focus();
+    });
+  </script>
+</body>
+</html>

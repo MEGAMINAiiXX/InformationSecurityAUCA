@@ -1,0 +1,14 @@
+[
+  {
+    "id": "sample-1",
+    "text": "Your mailbox will be suspended within 24 hours. Click here to verify your account immediately."
+  },
+  {
+    "id": "sample-2",
+    "text": "The library will be closed on Friday. The updated schedule is on the campus notice board."
+  },
+  {
+    "id": "sample-3",
+    "text": "Payment failed. Reply with your card number and security code to receive a refund."
+  }
+]

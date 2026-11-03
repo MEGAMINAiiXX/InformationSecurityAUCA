@@ -1,0 +1,4 @@
+Vim has normal mode and insert mode.
+Practice moving between lines.
+Try searching for the word mode.
+Save a copy before experimenting.
