@@ -22,7 +22,16 @@ if [[ $source_dir == "$destination_dir" ]]; then
     exit 2
 fi
 
-find "$source_dir" -mindepth 1 -maxdepth 1 -type f \
-    -exec mv -n -t "$destination_dir" -- {} +
+while IFS= read -r -d '' file; do
+    destination_file="$destination_dir/${file##*/}"
+
+    if [[ -e $destination_file || -L $destination_file ]]; then
+        printf 'Skipping existing destination: %s\n' "$destination_file"
+        continue
+    fi
+
+    mv -- "$file" "$destination_dir/"
+done < <(find "$source_dir" -mindepth 1 -maxdepth 1 -type f -print0)
+
 printf 'Moved non-conflicting regular files from %s to %s.\n' \
     "$source_dir" "$destination_dir"
